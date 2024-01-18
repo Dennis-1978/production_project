@@ -7,6 +7,10 @@ interface UseThemeResult {
 	theme: Theme;
 }
 
+/**
+ * Sets the color theme and saves the theme data to localstorage.
+ * @returns {Object} - The background color and the function that sets the background color.
+ */
 export function useTheme(): UseThemeResult {
 	const { theme, setTheme } = useContext(ThemeContext);
 
