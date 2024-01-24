@@ -1,12 +1,11 @@
-import { Suspense, useContext } from "react";
+import { Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import { Counter } from "./components/Counter";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
-import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
-import { Theme } from "./theme/ThemeContext";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+import { Theme } from "./providers/ThemeProvider/lib/ThemeContext";
+import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
+import { classNames } from "shared/lib/classNames/classNames";
+import { AboutPage } from "pages/AboutPage";
+import { MainPage } from "pages/MainPage";
 
 import "./styles/index.scss";
 
@@ -24,15 +23,14 @@ const App = () => {
 				<Routes>
 					<Route
 						path={"/"}
-						element={<MainPageAsync />}
+						element={<MainPage />}
 					/>
 					<Route
 						path={"/about"}
-						element={<AboutPageAsync />}
+						element={<AboutPage />}
 					/>
 				</Routes>
 			</Suspense>
-			<Counter />
 		</div>
 	);
 };
